@@ -13,7 +13,7 @@
         <!--Orders-->
         <scene sceneID="JAD-L1-vNi">
             <objects>
-                <tableViewController id="Wsk-nq-SJG" sceneMemberID="viewController">
+                <tableViewController id="Wsk-nq-SJG" customClass="OrdersTableViewController" customModule="CofeeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Piv-lJ-HL9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,14 +48,71 @@
         <!--Add new order-->
         <scene sceneID="c5q-tg-Yih">
             <objects>
-                <viewController id="6k9-QM-PWk" sceneMemberID="viewController">
+                <viewController id="6k9-QM-PWk" customClass="AddOrderController" customModule="CofeeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="77L-P8-Q0q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5IW-Fe-6vS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="abX-Pq-nTT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="abX-Pq-nTT" id="VoJ-uG-1IF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-9X-Zww">
+                                <rect key="frame" x="92" y="427.5" width="191" height="29"/>
+                                <segments>
+                                    <segment title="Small"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Large"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Hz-Xm-N5p">
+                                <rect key="frame" x="87.5" y="505.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="fZ4-LG-hxx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-xQ-hlQ">
+                                <rect key="frame" x="87.5" y="555.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5SB-Yy-G3D"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5IW-Fe-6vS" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="ILQ-Gd-dpj"/>
+                            <constraint firstItem="8Hz-Xm-N5p" firstAttribute="top" secondItem="9Oi-9X-Zww" secondAttribute="bottom" constant="50" id="N9L-Ij-DDg"/>
+                            <constraint firstItem="aBH-xQ-hlQ" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="RN4-hl-1Cw"/>
+                            <constraint firstItem="5IW-Fe-6vS" firstAttribute="height" secondItem="77L-P8-Q0q" secondAttribute="height" multiplier="1:2" id="Ufx-F3-cDr"/>
+                            <constraint firstItem="5IW-Fe-6vS" firstAttribute="top" secondItem="sz9-3Z-1vy" secondAttribute="top" id="euY-Td-DWh"/>
+                            <constraint firstItem="8Hz-Xm-N5p" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="fbj-rv-dqv"/>
+                            <constraint firstItem="9Oi-9X-Zww" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="hzi-m3-Zn4"/>
+                            <constraint firstItem="9Oi-9X-Zww" firstAttribute="top" secondItem="5IW-Fe-6vS" secondAttribute="bottom" constant="30" id="iz2-Ru-Eah"/>
+                            <constraint firstItem="aBH-xQ-hlQ" firstAttribute="top" secondItem="8Hz-Xm-N5p" secondAttribute="bottom" constant="20" id="xn9-9i-K4X"/>
+                            <constraint firstItem="5IW-Fe-6vS" firstAttribute="width" secondItem="77L-P8-Q0q" secondAttribute="width" id="yzT-sS-lOo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sz9-3Z-1vy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add new order" id="fHq-Qh-E9F"/>
+                    <navigationItem key="navigationItem" title="Add new order" id="fHq-Qh-E9F">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="NWv-ms-cLE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rOx-wG-mBl"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgD-xD-cPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
