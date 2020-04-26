@@ -8,9 +8,9 @@
 
 import Foundation
 
-class orderListViewModel {
+class OrderListViewModel {
     
-    let ordersViewModel : [OrderViewModel]
+    var ordersViewModel : [OrderViewModel]
     
     init(){
         
@@ -18,7 +18,7 @@ class orderListViewModel {
     }
 }
 
-extension orderListViewModel {
+extension OrderListViewModel {
     
     func orderViewModel(at index : Int) -> OrderViewModel {
         

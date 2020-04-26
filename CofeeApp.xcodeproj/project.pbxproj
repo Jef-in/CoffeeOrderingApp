@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492A02D02455651A00149096 /* AddCoffeeOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A02CF2455651A00149096 /* AddCoffeeOrderViewModel.swift */; };
 		493AAB2E24477AD30020778B /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493AAB2D24477AD30020778B /* OrderViewModel.swift */; };
 		49A9393A2442F88D00572505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A939392442F88D00572505 /* AppDelegate.swift */; };
 		49A9393F2442F88D00572505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A9393D2442F88D00572505 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		492A02CF2455651A00149096 /* AddCoffeeOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoffeeOrderViewModel.swift; sourceTree = "<group>"; };
 		493AAB2D24477AD30020778B /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		49A939362442F88D00572505 /* CofeeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CofeeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A939392442F88D00572505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				493AAB2D24477AD30020778B /* OrderViewModel.swift */,
+				492A02CF2455651A00149096 /* AddCoffeeOrderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				49A9396B2442FA8D00572505 /* AddOrderController.swift in Sources */,
 				49A939692442FA4700572505 /* OrdersTableViewController.swift in Sources */,
 				49EDBBBB244304A30021B03D /* Order.swift in Sources */,
+				492A02D02455651A00149096 /* AddCoffeeOrderViewModel.swift in Sources */,
 				493AAB2E24477AD30020778B /* OrderViewModel.swift in Sources */,
 				49EDBBB8244301070021B03D /* WebService.swift in Sources */,
 				49A9393A2442F88D00572505 /* AppDelegate.swift in Sources */,
