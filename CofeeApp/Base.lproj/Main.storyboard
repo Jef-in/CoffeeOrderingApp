@@ -116,10 +116,20 @@
                         <viewLayoutGuide key="safeArea" id="sz9-3Z-1vy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add new order" id="fHq-Qh-E9F">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="NWv-ms-cLE"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="rOx-wG-mBl"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="NWv-ms-cLE">
+                            <connections>
+                                <action selector="close" destination="6k9-QM-PWk" id="R16-3s-HKy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rOx-wG-mBl">
+                            <connections>
+                                <action selector="save" destination="6k9-QM-PWk" id="GSb-bN-rre"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="aBH-xQ-hlQ" id="5za-2m-9rv"/>
+                        <outlet property="nameTextField" destination="8Hz-Xm-N5p" id="k2b-oe-1qe"/>
                         <outlet property="tableView" destination="5IW-Fe-6vS" id="Fde-DH-pZa"/>
                     </connections>
                 </viewController>

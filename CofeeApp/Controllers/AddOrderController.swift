@@ -9,10 +9,20 @@
 import Foundation
 import UIKit
 
+protocol AddCoffeeOrderDelegate {
+    
+    func addcoffeeordersavedelegate(order:Order,controller:UIViewController)
+    func addcoffeeorderclosedelegate(controller:UIViewController)
+}
+
 class AddOrderController : UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    var delegate: AddCoffeeOrderDelegate?
     private var CoffeeSizesSegmentedControl: UISegmentedControl!
     private var vm = AddCoffeeOrderViewModel()
     
@@ -58,5 +68,51 @@ class AddOrderController : UIViewController,UITableViewDelegate,UITableViewDataS
         return cell
     }
     
+    @IBAction func close() {
+        
+        if let delegate = self.delegate {
+            
+            delegate.addcoffeeorderclosedelegate(controller: self)
+        }
+    }
+    
+    @IBAction func save() {
+        
+        let name = self.nameTextField.text
+        let email = self.emailTextField.text
+        
+        let CoffeeSize = self.CoffeeSizesSegmentedControl.titleForSegment(at: self.CoffeeSizesSegmentedControl.selectedSegmentIndex)
+        
+        guard let indexpath =  self.tableView.indexPathForSelectedRow else {  fatalError("Error in selecting cofee! ") }
+        
+        self.vm.name = name
+        self.vm.email = email
+        self.vm.CofeeSize = CoffeeSize
+        self.vm.CofeeType = self.vm.types[indexpath.row]
+        
+        WebService().load(resource: Order.create(vm: self.vm)){ result in
+            
+            switch result {
+                
+            case .success(let order):
+                
+                if let order = order,let delegate = self.delegate {
+                    
+                    DispatchQueue.main.async {
+                        
+                          delegate.addcoffeeordersavedelegate(order: order, controller: self)
+                    }
+                  
+                }
+                
+            case .failure(let error):
+                print(error)
+          
+                
+            }
+            
+        }
+        
+    }
     
 }

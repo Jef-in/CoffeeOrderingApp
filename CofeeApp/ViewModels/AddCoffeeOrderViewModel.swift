@@ -14,6 +14,10 @@ struct AddCoffeeOrderViewModel {
     
     var email : String?
     
+    var CofeeSize : String?
+    
+    var CofeeType : String?
+    
     
     var types: [String] {
         

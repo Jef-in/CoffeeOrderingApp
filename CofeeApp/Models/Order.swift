@@ -32,3 +32,52 @@ struct Order: Codable {
     
     
 }
+
+extension Order {
+    
+    static var all: Resource<[Order]> = {
+        
+            guard let url = URL(string: "https://guarded-retreat-82533.herokuapp.com/orders") else { fatalError("Error in the url") }
+        
+        return Resource<[Order]>(url: url)
+        
+    }()
+    
+   static func create(vm:AddCoffeeOrderViewModel) -> Resource<Order?> {
+        
+      let order = Order(vm)
+    
+    guard let url = URL(string: "https://guarded-retreat-82533.herokuapp.com/orders") else { fatalError("Error in the url") }
+    
+    guard let data = try? JSONEncoder().encode(order) else {
+        
+        fatalError("Error encoding JSON")
+    }
+    
+    var resource = Resource<Order?>(url: url)
+    resource.method = HttpMethod.post
+    resource.body = data
+    
+    return resource
+    
+    }
+}
+
+extension Order {
+    init?(_ vm: AddCoffeeOrderViewModel) {
+        
+        guard let name = vm.name,
+            let email = vm.email,
+            let SelectedSize = CoffeeSize(rawValue: vm.CofeeSize!.lowercased()),
+            let SelectedType = CoffeeType(rawValue: vm.CofeeType!.lowercased()) else {
+           
+            return nil
+        }
+        
+        self.name = name
+        self.email = email
+        self.size = SelectedSize
+        self.type = SelectedType
+    }
+    
+}
