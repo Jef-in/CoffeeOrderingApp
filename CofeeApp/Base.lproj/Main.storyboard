@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="323.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="abX-Pq-nTT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoffeeTypeTableViewCell" id="abX-Pq-nTT">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="abX-Pq-nTT" id="VoJ-uG-1IF">
@@ -80,15 +80,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6k9-QM-PWk" id="oei-kG-Og7"/>
+                                    <outlet property="delegate" destination="6k9-QM-PWk" id="iCu-EB-N4P"/>
+                                </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-9X-Zww">
-                                <rect key="frame" x="84.5" y="409.5" width="206" height="32"/>
-                                <segments>
-                                    <segment title="Small"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Large"/>
-                                </segments>
-                            </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Hz-Xm-N5p">
                                 <rect key="frame" x="87.5" y="490.5" width="200" height="34"/>
                                 <constraints>
@@ -109,13 +105,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5IW-Fe-6vS" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="ILQ-Gd-dpj"/>
-                            <constraint firstItem="8Hz-Xm-N5p" firstAttribute="top" secondItem="9Oi-9X-Zww" secondAttribute="bottom" constant="50" id="N9L-Ij-DDg"/>
                             <constraint firstItem="aBH-xQ-hlQ" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="RN4-hl-1Cw"/>
+                            <constraint firstItem="sz9-3Z-1vy" firstAttribute="bottom" secondItem="aBH-xQ-hlQ" secondAttribute="bottom" constant="68.5" id="SBs-xp-IME"/>
                             <constraint firstItem="5IW-Fe-6vS" firstAttribute="height" secondItem="77L-P8-Q0q" secondAttribute="height" multiplier="1:2" id="Ufx-F3-cDr"/>
                             <constraint firstItem="5IW-Fe-6vS" firstAttribute="top" secondItem="sz9-3Z-1vy" secondAttribute="top" id="euY-Td-DWh"/>
                             <constraint firstItem="8Hz-Xm-N5p" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="fbj-rv-dqv"/>
-                            <constraint firstItem="9Oi-9X-Zww" firstAttribute="centerX" secondItem="sz9-3Z-1vy" secondAttribute="centerX" id="hzi-m3-Zn4"/>
-                            <constraint firstItem="9Oi-9X-Zww" firstAttribute="top" secondItem="5IW-Fe-6vS" secondAttribute="bottom" constant="30" id="iz2-Ru-Eah"/>
                             <constraint firstItem="aBH-xQ-hlQ" firstAttribute="top" secondItem="8Hz-Xm-N5p" secondAttribute="bottom" constant="20" id="xn9-9i-K4X"/>
                             <constraint firstItem="5IW-Fe-6vS" firstAttribute="width" secondItem="77L-P8-Q0q" secondAttribute="width" id="yzT-sS-lOo"/>
                         </constraints>
@@ -125,6 +119,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Close" id="NWv-ms-cLE"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="rOx-wG-mBl"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="5IW-Fe-6vS" id="Fde-DH-pZa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgD-xD-cPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
